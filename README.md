@@ -1,4 +1,4 @@
-A variant of FORTRAN code QSSP, but for calculating co-seismic static deformation of a self-gravitating, spherically symmetric, isotropic and viscoelastic earth.
+A variant of FORTRAN code QSSP, for calculating co-seismic static deformation of a self-gravitating, spherically symmetric, isotropic and viscoelastic earth.
 
 This code package consists of two program codes: The first program "QSSPgrnco" generates co-seismic Green's function database, and the second program "Getcoseis" provides Green's functions or complete co-seismic deformation field requested by the user.
 
