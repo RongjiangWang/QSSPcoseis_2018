@@ -1,0 +1,124 @@
+# This is the input file of FORTRAN77 program "qsspgrnco2018" for generating Green's
+# function data base for coseismic elastic deformation based on a self-gravitating,
+# spherically symmetric, isotropic and elastic earth.
+#
+# by
+# Rongjiang Wang <wang@gfz-potsdam.de>
+# Helmholtz-Centre Potsdam
+# GFZ German Reseach Centre for Geosciences
+# Telegrafenberg, D-14473 Potsdam, Germany
+#
+# Last modified: Potsdam, May, 2018
+#
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# If not specified, SI Unit System is used overall!
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+#
+#-------------------------------------------------------------------------------------------
+#	SPECTRAL GREEN'S FUNCTION DATABASE
+#	==================================
+# 1. directory for spectral Green's functions.
+# 2. Critical harmonic degree (suggested: ~ 500), below which the gravity effect as well as
+#    the self-gravitating should be considered, and maximum cutoff harmonic degree
+# 3. receiver (absolute) depth sampling parameters: zr1, zr2, dzr [km] for the minimum,
+#    maximum depths and the (equidistant) depth interval
+# 4. number of discrete source centroid depths
+# 5. list of source centroid depths [km], the characteristic source size in the vertical
+#    and horizontal directions (depth range and radius) [km], respectively, and the file
+#    name of Green's functions and switch (0/1) of calculation (0 = spectra of Green's
+#    functions for this depth exist already, 1 = need to be calculated or updated only if
+#    the parameters above are set new or have been changed).
+#-------------------------------------------------------------------------------------------
+    'H:/qsspcoseis-2018/Maule2010/TongModel/SpectralGreen/'
+    1000    10000
+	-500.0  -450.0    1.0
+    20
+    3.7941    1.0   6.5  'grn_d01'   0
+    6.3823    1.0   6.5  'grn_d02'   0
+    8.9705    1.0   6.5  'grn_d03'   0
+   11.5587    1.0   6.5  'grn_d04'   0
+   14.1469    1.0   6.5  'grn_d05'   0
+   16.7350    1.0   6.5  'grn_d06'   0
+   19.3232    1.0   6.5  'grn_d07'   0
+   21.9114    1.0   6.5  'grn_d08'   0
+   24.4996    1.0   6.5  'grn_d09'   0
+   27.0878    1.0   6.5  'grn_d10'   0
+   29.6760    1.0   6.5  'grn_d11'   0
+   32.2642    1.0   6.5  'grn_d12'   0
+   34.8524    1.0   6.5  'grn_d13'   0
+   37.4406    1.0   6.5  'grn_d14'   0
+   40.0288    1.0   6.5  'grn_d15'   0
+   42.6170    1.0   6.5  'grn_d16'   0
+   45.2051    1.0   6.5  'grn_d17'   0
+   47.7933    1.0   6.5  'grn_d18'   0
+   50.3815    1.0   6.5  'grn_d19'   0
+   52.9697    1.0   6.5  'grn_d20'   0
+#-------------------------------------------------------------------------------------------
+#
+#	SPATIAL GREEN'S FUNCTION DATABASE
+#	=================================
+# 1. directory for spatial Green's functions
+# 2. receiver (epicentral) distance sampling parameters: dr1, dr2, ddr1, ddr2 [km],
+#    where dr1 and dr2 are the minimum and maximum distances, ddr1 and ddr2 are the
+#    smallest and largest intervals near dr1 and dr2, respectively (sampling interval
+#    increases linearly with distance)
+# 3. Green's function information file name
+#-------------------------------------------------------------------------------------------
+    'H:/qsspcoseis-2018/Maule2010/TongModel/SpatialGreen/'
+     0.0  10000.0   1.0  50.0
+    'GreenInfo.dat'
+#-------------------------------------------------------------------------------------------
+#
+#    LAYERED STRUCTURE OF SPHERICAL EARTH MODEL
+#    ==========================================
+#-------------------------------------------------------------------------------------------
+# 1. Number of data lines of the multi-layered spherical model, Earth's radius [km] and
+#    surface gravity [m/s^2]
+# 2. Elastic parameters of the multi-layered model
+#    Note:
+#    The model may have the typical (solid mantle) - (liquid outer core) - (solid inner
+#    core) structure, where both outer and inner cores are optional. All sources should be
+#    located in the solid mantle. The free surface and each of those interfaces, at which
+#    the medium parameters are continuous, are generally defined by a single data line;
+#    Other interfaces, at which at least one of the medium parameters is discontinuous, are
+#    all defined by two data lines to show the upper-side and lower-side values,
+#    respectively. Below the lowest interface (at a depth equal to or smaller than the earth
+#    radius) a homogeneous sphere is assumed. Spherical layers that have different top and
+#    bottom parameter values, are assumed to have a constant gradient for each parameter and
+#    will be discretised automatically to a number of homogeneous sublayers. The maximum
+#    thickness of the sublayers is controlled by a resolution parameter pre-defined in the
+#    header file qpcalloc.f.
+#-------------------------------------------------------------------------------------------
+   28    6371.0    9.82
+#-------------------------------------------------------------------------------------------
+# no  depth[km] vp[km/s] vs[km/s] rho[g/cm^3]   
+#-------------------------------------------------------------------------------------------
+  1       0.0    5.5100    3.1900    2.6000 
+  2       5.0    5.5100    3.1900    2.6000 
+  3       5.0    6.2800    3.6000    2.8000 
+  4      20.0    6.2800    3.6000    2.8000 
+  5      20.0    6.8900    3.9300    2.8000 
+  6      35.0    6.8900    3.9300    2.8000 
+  7      35.0    7.4000    4.1200    3.3000 
+  8      45.0    7.7600    4.5500    3.3000 
+  9      45.0    7.7600    4.5500    3.3000 
+ 10      55.0    7.7600    4.5500    3.3000 
+ 11      55.0    7.9400    4.5500    3.3000 
+ 12      90.0    7.9400    4.5500    3.3000 
+ 13      90.0    8.3400    4.7700    3.3000 
+ 14   120.000    8.0500    4.5000    3.3713 
+ 15   165.000    8.1750    4.5090    3.3985 
+ 16   210.000    8.3000    4.5180    3.4258 
+ 17   210.000    8.3000    4.5220    3.4258 
+ 18   260.000    8.4825    4.6090    3.4561 
+ 19   310.000    8.6650    4.6960    3.4864 
+ 20   360.000    8.8475    4.7830    3.5167 
+ 21   410.000    9.0300    4.8700    3.5470 
+ 22   410.000    9.3600    5.0700    3.7557 
+ 23   460.000    9.5280    5.1760    3.8175 
+ 24   510.000    9.6960    5.2820    3.8793 
+ 25   560.000    9.8640    5.3880    3.9410 
+ 26   610.000   10.0320    5.4940    4.0028 
+ 27   660.000   10.2000    5.6000    4.0646 
+ 28   660.000   10.7900    5.9500    4.3714 
+#---------------------------------end of all inputs-----------------------------------------
