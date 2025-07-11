@@ -14,7 +14,7 @@ c     lats,lons,deps: source locations
 c     vol=spa(0): anelastic strain volume
 c     mee,men,mez,mnn,mnz,mzz=spa(1-6): moment tensor if vol = 0, else anelastic strain tensor.
 c     nr: no of observation locations
-c     latr,lonr,depr: source locations
+c     latr,lonr,depr: receiver locations
 c
       integer*4 ns,nr
       integer*4 nrg,nzrg,ng
